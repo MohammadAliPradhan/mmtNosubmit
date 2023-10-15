@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './FlightSearch.css'
+import { Outlet } from 'react-router-dom'
 
 const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
     const [from, setFrom] = useState('Delhi')
@@ -29,7 +30,7 @@ const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
         }
     }
     return (<>
-
+        <Outlet />
         <div className='trip-type'>
                 <input type="radio" checked="checked" name='radio' value="oneway" />
                 <label htmlFor="trip-type"> One Way</label>

@@ -13,12 +13,11 @@ import Trains from './components/trains/Trains';
 function App() {
   return (
     <div className="app">
-      <header>
-        <Navbar />
-      </header>
+      
       <main>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route element={<Navbar />}>
+          <Route index element={<Home />} />
           <Route path='/flights' element={<Flights />} />
           <Route path='/hotels' element={<Hotels />} />
           <Route path='/trains' element={<Trains />} />
@@ -26,6 +25,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<NoPageFound />} />
+          </Route>
 
         </Routes>
       </main>
