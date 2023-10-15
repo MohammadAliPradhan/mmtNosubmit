@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
-import logo from '../../assets/images/Logo.png'
 import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -23,11 +22,9 @@ const Navbar = () => {
         <>
         <div className="NavParent">
         <nav className='navbar'>
-            <div className="left">
-                <NavLink to='/' className='logo'><img src={logo} alt="logo" width={120} height={36} /></NavLink>
-            </div>
+            
             <div className="right">
-                <ul>
+                <ul id='unorderLisL'>
                     <li>
                         <NavLink to='/flights' className='list-item'>Flights</NavLink>
                     </li>
