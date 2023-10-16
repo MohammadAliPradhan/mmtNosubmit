@@ -13,7 +13,7 @@ const FlightAvailable = ({ flights }) => {
                     <table>
                         <thead>
                             <tr>
-                                <th>FROM:</th>
+                                <th>From:</th>
                                 <th>DEPARTURE</th>
                                 <th>Price</th>
                             </tr>

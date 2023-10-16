@@ -1,96 +1,75 @@
-import React, { useRef, useState } from 'react'
-import './FlightSearch.css'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import './FlightSearch.css';
+import useDynamicDropdown from './useDynamicDropdown';
 
 const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
-    const [from, setFrom] = useState('Delhi')
-    const [to, setTo] = useState('Mumbai')
-    const fromRef = useRef(null)
-    const toRef = useRef(null)
-    const departureRef = useRef(null)
-    const returnRef = useRef(null)
+  const {
+    ...dropdownProps1
+  } = useDynamicDropdown("Dropdown 1", [
+    "Option 1A",
+    "Option 1B",
+    "Option 1C",
+  ]);
 
-    const handleFlightSearch = () => {
-        if (fromRef.current.value === '') {
-            fromRef.current.focus()
-        }
-        else if (toRef.current.value === '') {
-            toRef.current.focus()
-        }
-        else if (departureRef.current.value === '') {
-            departureRef.current.focus()
-        }
-        else if (returnRef.current.value === '') {
-            returnRef.current.focus()
-        }
+  const {
+    ...dropdownProps2
+  } = useDynamicDropdown("Dropdown 2", [
+    "Option 2A",
+    "Option 2B",
+    "Option 2C",
+  ]);
 
-        else {
-            const filter = flights.filter((flight) => flight.from.toLowerCase() === from.toLowerCase() && flight.to.toLowerCase() === to.toLowerCase())
-            setFlights(filter)
-        }
-    }
-    return (<>
-        <Outlet />
-        <div className='trip-type'>
-                <input type="radio" checked="checked" name='radio' value="oneway" />
-                <label htmlFor="trip-type"> One Way</label>
-                
-                <input type="radio" checked="checked" name='radio' value="oneway" />
-                <label htmlFor="trip-type"> Round Trip</label>
+  return (
+    <div className='DropParent'>
+      <div className="dropdown">
+        <button onClick={dropdownProps1.toggleDropdown} className="dropbtn">
+          {dropdownProps1.buttonText}
+        </button>
 
-                <input type="radio" checked="checked" name='radio' value="oneway" />
-                <label htmlFor="trip-type">Multi City</label>
-            </div>
+        <div
+          id="myDropdown1"
+          className={`dropdown-content ${dropdownProps1.isDropdownOpen ? "show" : ""}`}
+        >
+          <input
+            type="text"
+            placeholder="Search.."
+            id="myInput1"
+            value={dropdownProps1.filterText}
+            onChange={(e) => dropdownProps1.setFilterText(e.target.value)}
+          />
+          {dropdownProps1.filteredOptions.map((option, index) => (
+            <a key={index} onClick={() => dropdownProps1.handleItemClick(option)}>
+              {option}
+            </a>
+          ))}
+        </div>
+      </div>
 
-        <div className='parentFlight'>
-            {/* <div className='trip-type'>
-                <label htmlFor="trip-type">Trip type:</label>
-                <select name="trip-type" id="trip-type">
-                    <option value="oneway">Oneway</option>
-                </select>
-            </div> */}
-            <div className="search-container">
-                <div className="input">
-                    <label htmlFor="from">FROM</label>
-                    <input
-                        type="text"
-                        id='from'
-                        value={from}
-                        ref={fromRef}
-                        onChange={(e) => {
-                            setFrom(e.target.value)
-                            setFetch(!fetch)
-                        }}
-                    />
-                </div>
-                <div className="input">
-                    <label htmlFor="to">TO</label>
-                    <input
-                        type="text"
-                        id='to'
-                        value={to}
-                        ref={toRef}
-                        onChange={(e) => {
-                            setTo(e.target.value)
-                            setFetch(!fetch)
-                        }}
-                    />
-                </div>
-                <div className="input">
-                    <label htmlFor="departure">DEPARTURE</label>
-                    <input type="date" name="departure" id="departure" ref={departureRef} />
-                </div>
-                <div className="input">
-                    <label htmlFor="return">RETURN</label>
-                    <input type="date" name="return" id="return" ref={returnRef} />
-                </div>
-                <div className='search-btn'>
-                    <button onClick={handleFlightSearch}>Search</button>
-                </div>
-            </div>
-            </div>
-            </>
-    )
+      <div className="dropdown">
+        <button onClick={dropdownProps2.toggleDropdown} className="dropbtn">
+          {dropdownProps2.buttonText}
+        </button>
+
+        <div
+          id="myDropdown2"
+          className={`dropdown-content ${dropdownProps2.isDropdownOpen ? "show" : ""}`}
+        >
+          <input
+            type="text"
+            placeholder="Search.."
+            id="myInput2"
+            value={dropdownProps2.filterText}
+            onChange={(e) => dropdownProps2.setFilterText(e.target.value)}
+          />
+          {dropdownProps2.filteredOptions.map((option, index) => (
+            <a key={index} onClick={() => dropdownProps2.handleItemClick(option)}>
+              {option}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default FlightSearch
+export default FlightSearch;
