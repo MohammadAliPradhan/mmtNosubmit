@@ -20,9 +20,12 @@ const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
   ]);
 
   return (
+    <div className='pparent'>
     <div className='DropParent'>
       <div className="dropdown">
+        From
         <button onClick={dropdownProps1.toggleDropdown} className="dropbtn">
+          
           {dropdownProps1.buttonText}
         </button>
 
@@ -46,6 +49,7 @@ const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
       </div>
 
       <div className="dropdown">
+        To
         <button onClick={dropdownProps2.toggleDropdown} className="dropbtn">
           {dropdownProps2.buttonText}
         </button>
@@ -68,6 +72,7 @@ const FlightSearch = ({ flights, setFlights, setFetch, fetch }) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }

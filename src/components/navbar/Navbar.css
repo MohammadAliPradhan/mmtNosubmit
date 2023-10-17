@@ -1,5 +1,5 @@
 .navbar {
-    width: 80%;
+    width: 60%;
     height: 70px;
     padding: 20px;
     color: #130f40;
@@ -10,6 +10,9 @@
     align-items: center;
     border-radius: 20px;
     border: 2px solid black;
+    padding: 60px 0px;
+    position: relative;
+    top: 65px;
 }
 
 #unorderLisL{
@@ -162,10 +165,11 @@ ul li .btn-logout {
 }
 
 .NavParent{
+
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 30px;
+    position: inherit;
+    background-color: #0B2644;
 }
 
 

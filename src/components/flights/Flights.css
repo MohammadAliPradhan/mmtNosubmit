@@ -1,12 +1,10 @@
 
 .flights .search {
+  display: flex;
   width: 100%;
+  justify-content: center;
   height: auto;
   padding: 15px 30px;
-  border: 2px solid #161616;
-  border-radius: 20px;
-  border-bottom: 2px solid #aaa;
-  margin-bottom: 15px;
 }
 
 .flights .available {
@@ -24,4 +22,9 @@
 .trip-type{
   margin-bottom: 5px;
   margin-top: 50px;
+}
+
+
+.search{
+  background-color: #0B2644;
 }

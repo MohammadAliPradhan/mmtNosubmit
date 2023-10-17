@@ -104,12 +104,14 @@
   }
   
   .dropbtn {
+    display: flex;
     background-color: #04aa6d;
     color: white;
-    padding: 16px;
+    padding: 25px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+
   }
   
   .dropbtn:hover,
@@ -158,8 +160,19 @@
   }
 
   .DropParent{
+    display: inline-flex;
+    gap: 10px;
+    margin-top: 20px;
+    border: 5px solid black;
+  }
+
+  .pparent{
     display: flex;
+    justify-content: center;
+    width: 80%;
+    border: 5px solid red;
+    background-color: white;
+    padding: 100px 0;
     
-    gap: 20px;
   }
   

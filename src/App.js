@@ -9,23 +9,25 @@ import Navbar from './components/navbar/Navbar';
 import NoPageFound from './components/noPageFound/NoPageFound';
 import SignUp from './components/signup/SignUp';
 import Trains from './components/trains/Trains';
+import Header from "./components/header/Header"
 
 function App() {
   return (
     <div className="app">
-      
-      <main>
+      <Header />
+      <main className='maincss'>
+        
         <Routes>
           <Route element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path='/flights' element={<Flights />} />
           <Route path='/hotels' element={<Hotels />} />
           <Route path='/trains' element={<Trains />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<NoPageFound />} />
           </Route>
+          <Route path='/login' element={<Login />} />
 
         </Routes>
       </main>
